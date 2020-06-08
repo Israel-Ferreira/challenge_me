@@ -6,8 +6,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :full_name, presence: true
+  has_many :challenges, foreign_key: 'author_id'
+  has_many :challenge_users
 
-  before_validation :create_username 
+  before_validation :create_username
 
   def create_username
     if username.nil?

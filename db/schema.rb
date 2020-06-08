@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_050920) do
+ActiveRecord::Schema.define(version: 2020_06_07_035757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2020_06_06_050920) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "challenge_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_challenge_users_on_challenge_id"
+    t.index ["user_id"], name: "index_challenge_users_on_user_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_challenges_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,4 +54,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_050920) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "challenge_users", "challenges"
+  add_foreign_key "challenge_users", "users"
+  add_foreign_key "challenges", "users", column: "author_id"
 end

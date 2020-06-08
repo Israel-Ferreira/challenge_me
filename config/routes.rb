@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { formats: :json } do
     namespace :v1 do
       resources :categories
+      resources :challenges
+      resources :challenge_users
     end
   end
 
-  # get '*path', to: 'home#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json)$/ }
+  get '*path', to: 'home#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json)$/ }
 end

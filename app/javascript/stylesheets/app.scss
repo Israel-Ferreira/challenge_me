@@ -1,0 +1,31 @@
+@import "~react-bulma-components/src/index.sass";
+
+
+html, body, #root, #login_page, #sign_up_page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+#login_page, #sign_up_page  {
+  background-color: $danger;
+}
+
+#login_form, #sign_up_form {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 80%;
+
+  .card {
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+    height: 450px;
+    
+    @media screen  and (max-width: 768px){
+      width: 90%;
+    }
+  }
+}
