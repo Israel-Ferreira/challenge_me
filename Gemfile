@@ -60,3 +60,4 @@ gem "devise", "~> 4.7"
 gem "ffaker"
 gem "cancancan"
 gem 'tty-spinner'
+gem 'active_storage_base64'

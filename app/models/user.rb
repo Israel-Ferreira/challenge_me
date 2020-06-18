@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_base64_attached :avatar
+
   validates :full_name, presence: true
   has_many :challenges, foreign_key: 'author_id'
   has_many :challenge_users

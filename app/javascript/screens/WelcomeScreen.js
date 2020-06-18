@@ -4,14 +4,8 @@ import styled from "styled-components";
 
 import SectionWrapper from "../components/shared/SectionWrapper";
 
-const MainHeading = styled(Heading)`
-  margin-top: 50px;
-`;
-
-const ButtonSubscribe = styled(Button)`
-  border-width: 2px;
-  margin-top: 30px;
-`;
+import ButtonSubscribe from '../components/shared/ButtonSubscribe';
+import MainHeading from '../components/shared/MainHeading'
 
 
 

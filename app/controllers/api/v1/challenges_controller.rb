@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::ChallengeController < ApplicationController
+class Api::V1::ChallengesController < ApplicationController
   before_action :set_challenge, only: %i[show update]
 
   def index
@@ -16,7 +16,8 @@ class Api::V1::ChallengeController < ApplicationController
     if @challenge.save
       head :created
     else
-      head :unprocessable_entity
+      # head :unprocessable_entity
+      render json: @challenge.errors.full_messages.to_sentence
     end
   end
 
@@ -35,6 +36,6 @@ class Api::V1::ChallengeController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:title, :description)
+    params.require(:challenge).permit(:title, :description, :category_id)
   end
 end
