@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 
-  namespace :api, defaults: { formats: :json } do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :categories
       resources :challenges
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'home#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json)$/ }
+  get '*path', to: 'welcome#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json)$/ }
 end

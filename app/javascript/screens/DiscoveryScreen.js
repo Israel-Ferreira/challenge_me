@@ -1,5 +1,6 @@
 import React, {Fragment,useState} from 'react'
 import SectionWrapper from '../components/shared/SectionWrapper'
+import Home from '../components/Home'
 
 
 
@@ -7,6 +8,7 @@ import SectionWrapper from '../components/shared/SectionWrapper'
 const DiscoveryScreen =  () => (
   <Fragment>
     <SectionWrapper>
+      <Home />
     </SectionWrapper>
   </Fragment>
 )
